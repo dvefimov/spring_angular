@@ -1,4 +1,4 @@
-package com.github.dvefimov.spring_angular_tutorial;
+package com.github.dvefimov.spring_angular_tutorial.tutorial2_testing;
 
 import com.github.dvefimov.spring_angular_tutorial.tutorial2_testing.Car;
 import com.github.dvefimov.spring_angular_tutorial.tutorial2_testing.Engine;
