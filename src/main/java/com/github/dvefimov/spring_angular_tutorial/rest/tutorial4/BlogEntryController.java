@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * To change this template use File | Settings | File Templates.
  */
 @Controller
+@RequestMapping("/rest/blog-entries")
 public class BlogEntryController {
     private BlogEntryService service;
 
@@ -26,7 +27,7 @@ public class BlogEntryController {
         this.service = service;
     }
 
-    @RequestMapping(value = "/rest/blog-entries/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<BlogEntryResource> getBlogEntry(@PathVariable Long id){
         BlogEntry entry = service.find(id);
         if(entry != null){
