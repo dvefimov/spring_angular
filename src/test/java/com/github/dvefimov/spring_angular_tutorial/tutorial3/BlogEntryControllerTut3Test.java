@@ -21,9 +21,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * Time: 19:01
  * To change this template use File | Settings | File Templates.
  */
-public class BlogEntryControllerTest {
+public class BlogEntryControllerTut3Test {
     @InjectMocks
-    private BlogEntryController controller;
+    private BlogEntryController_tut3 controller;
 
     private MockMvc mockMvc;
 
