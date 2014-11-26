@@ -1,7 +1,7 @@
 package com.github.dvefimov.spring_angular_tutorial.tutorial4;
 
-import com.github.dvefimov.spring_angular_tutorial.core.tutorial4.BlogEntry;
-import com.github.dvefimov.spring_angular_tutorial.core.tutorial4.services.BlogEntryService;
+import com.github.dvefimov.spring_angular_tutorial.core.model.BlogEntry_tut4;
+import com.github.dvefimov.spring_angular_tutorial.core.services.BlogEntryService_tut4;
 import com.github.dvefimov.spring_angular_tutorial.rest.tutorial4.BlogEntryController;
 import org.junit.Before;
 import org.junit.Test;
@@ -32,7 +32,7 @@ public class BlogEntryControllerTest {
     private BlogEntryController controller;
 
     @Mock
-    private BlogEntryService service;
+    private BlogEntryService_tut4 service;
 
     private MockMvc mockMvc;
 
@@ -45,11 +45,11 @@ public class BlogEntryControllerTest {
 
     @Test
     public void getExistingBlogEntry() throws Exception {
-        BlogEntry entry = new BlogEntry();
+        BlogEntry_tut4 entry = new BlogEntry_tut4();
         entry.setId(1L);
         entry.setTitle("Test Blog Entry title");
 
-        when(service.find(1L)).thenReturn(entry);
+        when(service.findBlogEntry(1L)).thenReturn(entry);
 
         mockMvc.perform(get("/rest/blog-entries/1")).
                 andExpect(jsonPath("$.title", is(entry.getTitle()))).
@@ -60,7 +60,7 @@ public class BlogEntryControllerTest {
 
     @Test
     public void getNotExistingBlogEntry() throws Exception {
-        when(service.find(1L)).thenReturn(null);
+        when(service.findBlogEntry(1L)).thenReturn(null);
         mockMvc.perform(get("/rest/blog-entries/1")).
                 andExpect(status().isNotFound()).
                 andDo(print());
